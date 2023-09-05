@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Store</title>
+</head>
+<body>
+    <h1>Document Store</h1>
+
+    
+    <h2>Upload a File</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="email">Email ID:</label>
+        <input type="text" id="email" name="email" required>
+        <br>
+        <label for="filename">Filename:</label>
+        <input type="text" id="filename" name="filename" required>
+        <br>
+        <input type="file" id="file" name="file" required>
+        <br>
+        <input type="submit" value="Upload">
+    </form>
+
+   
+    <h2>Search for Files</h2>
+    <form action="/search" method="get">
+        <label for="searchEmail">Email ID:</label>
+        <input type="text" id="searchEmail" name="email" required>
+        <br>
+        <label for="searchQuery">Search Query:</label>
+        <input type="text" id="searchQuery" name="query" required>
+        <br>
+        <input type="submit" value="Search">
+    </form>
+
+   
+    <h3>Search Results:</h3>
+    <ul>
+    
+        {% for result in results %}
+            <li>{{ result }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
